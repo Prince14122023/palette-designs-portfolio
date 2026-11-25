@@ -6,6 +6,7 @@
 const GALLERY = {
     images: [],
     activeCategory: "all",
+    searchTerm: "",
     visibleCount: 24,
     batchSize: 24
 };
@@ -43,17 +44,22 @@ async function loadPortfolio() {
 }
 
 /* ==========================================
-   FILTER IMAGES
+   SEARCH + CATEGORY FILTER
 ========================================== */
 
 function getFilteredImages() {
-    if (GALLERY.activeCategory === "all") {
-        return GALLERY.images;
-    }
+    return GALLERY.images.filter(image => {
+        const matchesCategory =
+            GALLERY.activeCategory === "all" ||
+            image.category === GALLERY.activeCategory;
 
-    return GALLERY.images.filter(image =>
-        image.category === GALLERY.activeCategory
-    );
+        const searchableText = `${image.folder} ${image.category}`.toLowerCase();
+
+        const matchesSearch =
+            searchableText.includes(GALLERY.searchTerm.toLowerCase());
+
+        return matchesCategory && matchesSearch;
+    });
 }
 
 /* ==========================================
@@ -273,6 +279,97 @@ categoryFilters.addEventListener("click", event => {
     button.classList.add("active");
 
     renderGallery();
+    updateSearchSuggestions();
+});
+
+/* ==========================================
+   PORTFOLIO SEARCH
+========================================== */
+
+const portfolioSearch = document.getElementById("portfolioSearch");
+const clearSearchBtn = document.getElementById("clearSearch");
+const searchSuggestions = document.getElementById("searchSuggestions");
+
+function updateSearchSuggestions() {
+    const term = portfolioSearch.value.trim().toLowerCase();
+
+    searchSuggestions.innerHTML = "";
+
+    if (!term) {
+        searchSuggestions.style.display = "none";
+        return;
+    }
+
+    const matches = GALLERY.images.filter(image => {
+        const matchesCategory =
+            GALLERY.activeCategory === "all" ||
+            image.category === GALLERY.activeCategory;
+
+        const searchableText = `${image.folder} ${image.category}`.toLowerCase();
+
+        return matchesCategory && searchableText.includes(term);
+    }).slice(0, 8);
+
+    searchSuggestions.style.display = "block";
+
+    if (matches.length === 0) {
+        searchSuggestions.innerHTML = `
+            <div class="search-empty">
+                No matching spaces found.
+            </div>
+        `;
+        return;
+    }
+
+    matches.forEach(image => {
+        const suggestion = document.createElement("button");
+        suggestion.className = "search-suggestion";
+        suggestion.type = "button";
+
+        suggestion.innerHTML = `
+            <strong></strong>
+            <span></span>
+        `;
+
+        suggestion.querySelector("strong").textContent = image.folder;
+        suggestion.querySelector("span").textContent =
+            image.category.replace("-", " ").toUpperCase();
+
+        suggestion.addEventListener("click", () => {
+            searchSuggestions.style.display = "none";
+            openLightbox(image);
+        });
+
+        searchSuggestions.appendChild(suggestion);
+    });
+}
+
+portfolioSearch.addEventListener("input", () => {
+    GALLERY.searchTerm = portfolioSearch.value.trim();
+    GALLERY.visibleCount = GALLERY.batchSize;
+
+    clearSearchBtn.style.display =
+        portfolioSearch.value ? "block" : "none";
+
+    updateSearchSuggestions();
+    renderGallery();
+});
+
+clearSearchBtn.addEventListener("click", () => {
+    portfolioSearch.value = "";
+    GALLERY.searchTerm = "";
+    GALLERY.visibleCount = GALLERY.batchSize;
+
+    clearSearchBtn.style.display = "none";
+    searchSuggestions.style.display = "none";
+
+    renderGallery();
+});
+
+document.addEventListener("click", event => {
+    if (!event.target.closest(".portfolio-search-wrap")) {
+        searchSuggestions.style.display = "none";
+    }
 });
 
 /* ==========================================

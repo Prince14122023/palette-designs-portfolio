@@ -1225,3 +1225,128 @@ button {
 .navbar {
     min-height: 90px;
 }
+
+/* ==========================================
+   PALETTE DESIGNS — PORTFOLIO SEARCH
+========================================== */
+
+.portfolio-search-wrap {
+    width: 100%;
+    max-width: 520px;
+    margin: 28px 0 35px auto;
+    position: relative;
+    z-index: 5;
+}
+
+.portfolio-search {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 18px;
+    min-height: 58px;
+    border: 1px solid rgba(18, 61, 48, 0.20);
+    background: #fff;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.portfolio-search:focus-within {
+    border-color: var(--gold);
+    box-shadow: 0 5px 22px rgba(18, 61, 48, 0.06);
+}
+
+.search-icon {
+    font-size: 25px;
+    color: var(--forest);
+    line-height: 1;
+}
+
+.portfolio-search input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--charcoal);
+}
+
+.portfolio-search input::placeholder {
+    color: #99958c;
+}
+
+#clearSearch {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+.search-suggestions {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid rgba(18, 61, 48, 0.12);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    max-height: 320px;
+    overflow-y: auto;
+    display: none;
+}
+
+.search-suggestion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 15px 18px;
+    border: none;
+    border-bottom: 1px solid rgba(18, 61, 48, 0.07);
+    background: white;
+    text-align: left;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s ease;
+}
+
+.search-suggestion:hover {
+    background: var(--ivory);
+}
+
+.search-suggestion strong {
+    color: var(--forest);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.search-suggestion span {
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.search-empty {
+    padding: 16px 18px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    .portfolio-search-wrap {
+        max-width: 100%;
+        margin: 22px 0 28px;
+    }
+
+    .portfolio-search {
+        min-height: 54px;
+        padding: 0 14px;
+    }
+
+    .portfolio-search input {
+        font-size: 13px;
+    }
+}
