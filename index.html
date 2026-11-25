@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palette Designs | Interior Design Portfolio</title>
+    <meta name="description" content="Explore the interior design portfolio of Palette Designs.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <header class="navbar" id="navbar">
+        <a href="#home" class="brand" aria-label="Palette Designs Home">
+            <img src="assets/palette-logo.png" alt="Palette Designs">
+        </a>
+
+        <nav class="nav-links">
+            <a href="#about">ABOUT</a>
+            <a href="#services">SERVICES</a>
+            <a href="#portfolio">PORTFOLIO</a>
+            <a href="#contact" class="nav-contact">CONTACT ↗</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <p class="eyebrow">INTERIOR DESIGN & SPATIAL EXPERIENCES</p>
+                <h1>Spaces that inspire.<br><span>Living that feels.</span></h1>
+                <p class="hero-description">A visual journey through the spaces we imagine and create.</p>
+                <a href="#portfolio" class="hero-button">EXPLORE OUR WORK <span>↗</span></a>
+            </div>
+
+            <div class="hero-scroll">
+                <span></span>
+                SCROLL TO EXPLORE
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="about-section" id="about">
+            <p class="section-label">01 / ABOUT PALETTE</p>
+            <div class="about-content">
+                <h2>Designing with intention.<br><em>Creating with vision.</em></h2>
+                <div class="about-text">
+                    <p>
+                        Palette Designs offers comprehensive interior design, architectural,
+                        and renovation services, from initial consultation to final installation.
+                        Our services include design consultation, 2D & 3D visualization,
+                        lighting design, project management, and furniture and decor selection.
+                    </p>
+
+                    <p>
+                        Every project is an opportunity to innovate and create spaces that
+                        reflect YOU. We design functional, aesthetically pleasing, and
+                        personalized environments tailored to individual needs, preferences,
+                        and budgets.
+                    </p>
+
+                    <p>
+                        Inspired by the culture and elegance of neo-modernism, our approach
+                        combines thoughtful design, creativity, and practicality. We guide
+                        our clients through renovation and execution, ensuring projects stay
+                        aligned with their vision, budget, and timeline.
+                    </p>
+
+                    <p>
+                        Our open-minded team believes great design comes from people,
+                        culture, collaboration, and shared ideas. Beyond aesthetics, we
+                        prioritize the health, safety, comfort, and well-being of everyone
+                        who experiences the spaces we create.
+                    </p>
+
+                    <p>
+                        With projects across residential, commercial, and hospitality spaces
+                        throughout India, Palette Designs delivers interior and architectural
+                        solutions with a commitment to quality execution and each client's
+                        unique requirements.
+                    </p>
+                </div>
+
+                <div class="about-image">
+                    <img src="assets/about/about-interior.webp" alt="Palette Designs Interior">
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="services-section" id="services">
+            <p class="section-label">02 / OUR SERVICES</p>
+            <h2>Thoughtfully designed<br><em>for every space.</em></h2>
+
+            <div class="services-grid">
+                <article class="service-item">
+                    <span class="service-number">01</span>
+                    <h3>Residential</h3>
+                    <p>Homes & personal spaces</p>
+                </article>
+
+                <article class="service-item">
+                    <span class="service-number">02</span>
+                    <h3>Commercial</h3>
+                    <p>Spaces for business</p>
+                </article>
+
+                <article class="service-item">
+                    <span class="service-number">03</span>
+                    <h3>Hospitality</h3>
+                    <p>Experiences & destinations</p>
+                </article>
+
+                <article class="service-item">
+                    <span class="service-number">04</span>
+                    <h3>Healthcare</h3>
+                    <p>Functional, thoughtful environments</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO -->
+        <section class="portfolio-section" id="portfolio">
+            <p class="section-label">03 / OUR PORTFOLIO</p>
+            <div class="portfolio-heading">
+                <h2>A collection of<br><em>spaces & stories.</em></h2>
+                <p class="portfolio-intro">
+                    Explore our work across different spaces and design categories.
+                </p>
+            </div>
+
+            <!-- CATEGORY FILTERS -->
+            <div class="category-filters" id="categoryFilters">
+                <button class="filter-btn active" data-category="all">ALL PROJECTS</button>
+                <button class="filter-btn" data-category="residential">RESIDENTIAL</button>
+                <button class="filter-btn" data-category="commercial">COMMERCIAL</button>
+                <button class="filter-btn" data-category="hospitality">HOSPITALITY</button>
+                <button class="filter-btn" data-category="healthcare">HEALTHCARE</button>
+                <button class="filter-btn" data-category="common-areas">COMMON AREAS</button>
+                <button class="filter-btn" data-category="exterior">EXTERIOR</button>
+                <button class="filter-btn" data-category="other">OTHER SPACES</button>
+            </div>
+
+            <!-- PORTFOLIO COUNT -->
+            <div class="portfolio-count" id="portfolioCount">
+                Showing projects...
+            </div>
+
+            <!-- IMAGE GALLERY: JAVASCRIPT WILL POPULATE THIS -->
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Render cards will be generated here -->
+            </div>
+
+            <button class="load-more-btn" id="loadMoreBtn" hidden>
+                LOAD MORE PROJECTS +
+            </button>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="contact-section" id="contact">
+            <p class="section-label">04 / LET'S CONNECT</p>
+            <h2>Let's create something<br><em>beautiful together.</em></h2>
+            <p class="contact-placeholder">Our contact details will be added here.</p>
+            <a href="#" class="contact-button" id="contactButton">START A CONVERSATION ↗</a>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-brand">
+            <span class="brand-name">PALETTE DESIGNS</span>
+            <span class="brand-tagline">WHERE COMFORT MEETS STYLE</span>
+        </div>
+        <p>© <span id="currentYear"></span> Palette Designs. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

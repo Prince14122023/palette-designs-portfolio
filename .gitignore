@@ -1,0 +1,17 @@
+# Original high-resolution renders - NEVER UPLOAD
+renders/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Local environment
+.env
+.venv/
+venv/
+
+# Editor files
+.vscode/
+
+# Original image inventory
+image-manifest.json
