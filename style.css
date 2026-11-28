@@ -433,7 +433,7 @@ button {
 .portfolio-card {
     position: relative;
     overflow: hidden;
-    background: var(--sand);
+    background: #FBEBDF;
     cursor: pointer;
 }
 
@@ -805,7 +805,7 @@ button {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    background: var(--sand);
+    background: #FBEBDF;
 }
 
 .portfolio-card img {
