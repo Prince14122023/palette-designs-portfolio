@@ -9,7 +9,7 @@
     --forest-deep: #0B2B22;
     --gold: #C7A66A;
     --ivory: #F5F2EC;
-    --sand: #E6DFD2;
+    --sand: #FBEBDF;
     --charcoal: #252622;
     --muted: #77766F;
     --white: #FFFFFF;
@@ -805,7 +805,7 @@ button {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    background: #E6DFD2;
+    background: var(--sand);
 }
 
 .portfolio-card img {
@@ -863,7 +863,7 @@ button {
 }
 
 .portfolio-card .image-info span {
-    color: #E6DFD2;
+    color: var(--sand);
     letter-spacing: 2px;
 }
 
@@ -1133,7 +1133,7 @@ button {
 ========================================== */
 
 .portfolio-card {
-    background: #E6DFD2;
+    background: var(--sand);
 }
 
 .portfolio-card img {
